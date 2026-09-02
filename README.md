@@ -1,82 +1,124 @@
-# ESP32 Custom Development Board
+# ESP32 Development Board PCB
 
-> A custom two-layer ESP32 development board designed from schematic to PCB layout in KiCad.
+A custom 2-layer ESP32 development board designed in **KiCad 9**, integrating USB connectivity, GPIO expansion, CAN communication, OLED support, and commonly used embedded interfaces into a single development platform.
+
+---
 
 ## Overview
 
-This project is a custom ESP32 development board designed to consolidate common development and communication interfaces into a single PCB.
+This project covers the complete PCB design workflow, from schematic capture and component selection through PCB placement, routing, and design-rule verification.
 
-The design was developed in KiCad, covering the complete PCB design workflow from schematic capture and component selection to PCB placement, routing, design-rule checking, and 3D visualization.
+The board is centered around the **ESP32-WROOM-32E** and is designed as a versatile development platform for embedded systems, communication interfaces, and peripheral experimentation.
 
-## Features
+The design was developed as a **portfolio and learning project**. The PCB has not been physically manufactured or hardware-tested.
 
-- **ESP32-WROOM-32E** wireless microcontroller
-- **USB-C** power and programming interface
+---
+
+## Key Features
+
+- **ESP32-WROOM-32E** wireless microcontroller module
+- **USB-C** connector for power and USB communication
 - **CP2102N** USB-to-UART bridge
-- **0.96" OLED** display interface
-- **CAN** communication interface
-- **UART2** interface
-- **SPI** interface
-- **I2C** interface
-- **3.3 V power regulation** using AMS1117
-- Dedicated **Boot** and **Reset** controls
-- **User status LED**
-- **CAN termination** support
-- On-board power filtering and decoupling
+- **AMS1117-3.3** voltage regulator
+- **30-pin GPIO expansion header**
+- **OLED interface**
+- **CAN bus interface**
+- **SN65HVD230** CAN transceiver
+- **NUP2105L** CAN bus protection
+- **Selectable 120 Ω CAN termination**
+- UART interface
+- SPI interface
+- I²C interface
+- Boot and Reset push buttons
+- User status LED
+- Local power decoupling
+- 2-layer PCB design
 
-## Design Workflow
+---
 
-### 1. Schematic Design
+## System Architecture
 
-The circuit was designed and interconnected in KiCad before transferring the design to the PCB layout.
+The board is organized around several functional blocks:
 
-![Schematic](images/schematic.png)
+### Microcontroller
 
-### 2. PCB Layout & Routing
+The **ESP32-WROOM-32E** provides the main processing capability along with integrated Wi-Fi and Bluetooth connectivity.
 
-Components were placed and routed on a two-layer PCB with attention to signal connectivity, component accessibility, and board organization.
+### USB / Programming
 
-![PCB Layout](images/pcb-layout.png)
+A USB-C interface is connected to a **CP2102N USB-to-UART bridge**, providing a convenient connection between the development board and a host computer.
 
-### 3. 3D Visualization
+The USB interface supports board power and serial communication/programming.
 
-KiCad's 3D Viewer was used to verify component placement and visualize the final board assembly.
+### Power
 
-![3D Top View](images/3d-top.png)
+The USB-C input supplies the board, with an **AMS1117-3.3** regulator generating the 3.3 V rail required by the ESP32 and supporting circuitry.
 
-![3D Angled View](images/3d-angle.png)
+Decoupling capacitors are placed around the relevant power circuits to support stable local supply operation.
 
-## Hardware Architecture
+### CAN Communication
 
-| Section | Implementation |
+The CAN interface is implemented using the **SN65HVD230** transceiver.
+
+The CAN bus includes **NUP2105L** protection, while a selectable **120 Ω termination resistor** is provided through the onboard termination jumper.
+
+### GPIO Expansion
+
+A single **30-pin expansion header** provides access to the available ESP32 GPIOs along with:
+
+- 3.3 V
+- 5 V
+- GND
+
+This allows external sensors, displays, communication modules, and other peripherals to be connected without requiring dedicated headers for every interface.
+
+---
+
+## Supported Interfaces
+
+| Interface | Implementation |
 |---|---|
-| MCU | ESP32-WROOM-32E |
-| USB Interface | USB-C + CP2102N |
-| Power | AMS1117-3.3 V regulator |
-| Display | OLED interface |
-| CAN | SN65HVD230 transceiver |
-| Serial | UART2 |
-| Digital Interfaces | SPI, I2C |
-| User Controls | Boot & Reset |
-| Indicator | User LED |
-| PCB | 2-layer |
+| USB | USB-C + CP2102N |
+| UART | ESP32 UART interface |
+| I²C | ESP32 GPIO21 / GPIO22 |
+| SPI | ESP32 GPIO18 / GPIO19 / GPIO23 |
+| CAN | SN65HVD230 |
+| GPIO | 30-pin expansion header |
+| OLED | Dedicated connector |
+| Power | USB-C + AMS1117-3.3 |
 
-## Tools
+---
 
-- **KiCad 9.0**
-- Schematic Editor
-- PCB Editor
-- KiCad 3D Viewer
+## GPIO Expansion
 
-## Repository Contents
+The board uses a universal GPIO expansion header rather than separate headers for each communication protocol.
+
+The header exposes the following ESP32 GPIOs:
 
 ```text
-├── images/
-│   ├── schematic.png
-│   ├── pcb-layout.png
-│   ├── 3d-top.png
-│   └── 3d-angle.png
-│
-├── esp32.kicad_pro
-├── esp32.kicad_sch
-└── esp32.kicad_pcb
+GPIO0
+GPIO1
+GPIO2
+GPIO3
+GPIO4
+GPIO5
+GPIO12
+GPIO13
+GPIO14
+GPIO15
+GPIO16
+GPIO17
+GPIO18
+GPIO19
+GPIO21
+GPIO22
+GPIO23
+GPIO25
+GPIO26
+GPIO27
+GPIO32
+GPIO33
+GPIO34
+GPIO35
+GPIO36
+GPIO39
