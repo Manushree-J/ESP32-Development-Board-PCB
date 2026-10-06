@@ -1,79 +1,71 @@
-# ESP32 Development Board – Custom PCB Design
+# ESP32 Development Board — 4-Layer PCB
 
-A custom ESP32 development board designed from schematic to PCB using **KiCad**.
+A custom ESP32 development board designed in KiCad 9, built around the **ESP32-WROOM-32E** module.
 
-The board is built around the **ESP32-WROOM-32E** and integrates USB connectivity, power management, CAN communication, OLED/I²C, UART, SPI, boot/reset controls, and a consolidated GPIO expansion header.
-
----
-
-## 📌 Project Overview
-
-This project demonstrates the complete PCB design workflow:
-
-- Circuit and schematic design
-- Component selection and footprint assignment
-- PCB component placement
-- Two-layer PCB routing
-- USB-to-UART interface design
-- Power regulation
-- CAN communication interface
-- GPIO expansion
-- PCB design verification
-- 3D visualization and documentation
-
-The main objective of the project is to create a versatile ESP32 development platform suitable for embedded-system development, communication experiments, and hardware prototyping.
+The board combines USB programming, regulated power, wireless connectivity, CAN communication, and common embedded interfaces into a compact development platform.
 
 ---
 
-## ✨ Key Features
+## Overview
 
-- **ESP32-WROOM-32E** microcontroller module
-- **USB-C** interface
-- **CP2102N** USB-to-UART bridge
-- **AMS1117-3.3** voltage regulator
-- **CAN bus** interface using SN65HVD230
-- CAN transient protection using **NUP2105L**
-- **120 Ω CAN termination** with selectable jumper
-- **OLED / I²C interface**
-- **UART2 interface**
-- **SPI interface**
-- Boot and reset controls
-- User status LED
-- Local power-supply decoupling
-- Consolidated **30-pin GPIO expansion header**
-- Two-layer PCB design
-- KiCad schematic, PCB and project files included
+The ESP32 Development Board is designed as a general-purpose embedded development platform.
+
+The board provides:
+
+- ESP32-WROOM-32E microcontroller module
+- Integrated Wi-Fi and Bluetooth
+- USB-C interface
+- CP2102N USB-to-UART bridge
+- AMS1117-3.3 voltage regulator
+- I²C interface
+- SPI interface
+- UART interfaces
+- CAN interface
+- OLED interface
+- Boot and Reset push buttons
+- User LED
+- 30-pin GPIO expansion header
+- Four-layer PCB stackup
+- Ground plane on the inner layer
+- CAN protection and selectable termination
 
 ---
 
-## 🧩 System Architecture
+## Hardware Architecture
+
+The main system is centered around the **ESP32-WROOM-32E**.
+
+### Main Blocks
 
 ```text
-                         ┌─────────────────────┐
-                         │     USB-C Port      │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │      CP2102N        │
-                         │   USB ↔ UART Bridge │
-                         └──────────┬──────────┘
-                                    │ UART0
-                                    ▼
-┌─────────────────────────────────────────────────────────┐
-│                  ESP32-WROOM-32E                        │
-│                                                         │
-│  I²C ─────────────── OLED                               │
-│  SPI ──────────────── Expansion / Peripherals           │
-│  UART2 ────────────── Expansion / Peripherals           │
-│  CAN ──────────────── SN65HVD230                        │
-│  GPIO ─────────────── 30-Pin Expansion Header           │
-│  GPIO2 ────────────── User LED                          │
-│  EN ───────────────── Reset Circuit                     │
-└─────────────────────────────────────────────────────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │   Power Regulation  │
-                         │    AMS1117-3.3      │
-                         └─────────────────────┘
+                    ┌──────────────────────┐
+                    │      USB-C INPUT     │
+                    └──────────┬───────────┘
+                               │
+                    ┌──────────▼───────────┐
+                    │      CP2102N         │
+                    │    USB-to-UART       │
+                    └──────────┬───────────┘
+                               │ UART
+                               │
+                    ┌──────────▼───────────┐
+                    │    ESP32-WROOM-32E   │
+                    │                      │
+                    │ Wi-Fi + Bluetooth    │
+                    │ GPIO / UART / SPI    │
+                    │ I²C / CAN           │
+                    └───────┬─────┬────────┘
+                            │     │
+               ┌────────────┘     └─────────────┐
+               │                                │
+        ┌──────▼──────┐                  ┌──────▼──────┐
+        │   OLED/I²C  │                  │    CAN      │
+        │             │                  │ SN65HVD230  │
+        └─────────────┘                  └──────┬──────┘
+                                               │
+                                         CANH / CANL
+
+                    ┌──────────────────────┐
+                    │    AMS1117-3.3      │
+                    │    Power Supply     │
+                    └──────────────────────┘
