@@ -1,168 +1,167 @@
-# ESP32 Development Board | PCB Design & Hardware Development
+<div align="center">
 
-A custom ESP32 development board designed using **KiCad 9**, documenting the progression from an initial two-layer PCB to four-layer designs and an enhanced hardware revision featuring a CAN communication interface.
+# 👋 Hi, I'm Manushree J
 
-This project demonstrates practical learning in electronic design, PCB layout, multilayer routing, design verification, and iterative hardware development.
+### Electronics & Communication Engineering Student
 
-## Project Overview
+**Embedded Systems | Firmware Development | IoT | PCB Design**
 
-The objective of this project is to design and progressively improve a custom ESP32 development board while developing a deeper understanding of electronic hardware design and engineering workflows.
+[GitHub](https://github.com/manushree-j) · [LinkedIn](https://www.linkedin.com/in/manushree-j-83086035a/)
 
-The repository captures three design stages, with each revision building on the previous one through exploration, refinement, and the application of new concepts.
-
-## Design Evolution
-
-### 01 — Original Two-Layer PCB
-
-The initial revision established the core functionality of the custom development board.
-
-**Key features**
-- ESP32-WROOM-32E module
-- USB-C connectivity
-- CP2102N USB-to-UART interface
-- AMS1117-3.3 V voltage regulator
-- GPIO expansion header
-- BOOT and RESET push buttons
-- Onboard user LED
-- Two-layer PCB layout
-
-**Engineering focus:** Schematic capture, component selection, footprint assignment, component placement, PCB routing, and basic design verification.
-
-### 02 — Four-Layer PCB
-
-The second stage explored multilayer PCB design and the use of internal copper layers to improve routing flexibility.
-
-**Key areas**
-- Four-layer stackup configuration
-- Component placement and signal routing
-- Internal copper-layer planning
-- Copper-zone configuration
-- ERC and DRC checks
-- Three-dimensional PCB visualization
-
-**Engineering focus:** Multilayer PCB organization, routing strategies, copper-layer management, and design-rule analysis.
-
-### 03 — Enhanced Four-Layer PCB with CAN Interface
-
-The latest design stage extends the board's capabilities with a CAN communication interface and mechanical mounting provisions.
-
-**Key features**
-- ESP32-WROOM-32E module
-- USB-C and CP2102N programming interface
-- AMS1117-3.3 V power regulation
-- GPIO expansion and user controls
-- SN65HVD230 CAN transceiver
-- NUP2105L CAN bus protection
-- Configurable 120 Ω CAN termination
-- Three-pin CAN screw terminal
-- Four corner mounting holes
-- Four-layer PCB layout
-
-**Engineering focus:** Peripheral integration, communication-interface design, connector placement, mechanical considerations, and iterative PCB refinement.
-
-## ESP32 GPIO Reference
-
-The ESP32-WROOM-32E exposes GPIOs with different capabilities. The following table is a **general reference for the classic ESP32**, not a verified pinout of this custom PCB.
-
-| GPIO | Potential functions | Considerations |
-|---|---|---|
-| GPIO0 | Digital I/O, PWM | Boot-strapping pin; may be connected to BOOT circuitry |
-| GPIO2 | Digital I/O, ADC2, touch | Boot-strapping considerations |
-| GPIO4 | Digital I/O, ADC2, touch, PWM | Multipurpose pin |
-| GPIO5 | Digital I/O, SPI-related functions, PWM | Boot-strapping pin |
-| GPIO12–15 | Digital I/O, ADC2, touch, SPI-related functions | Several pins have boot-strapping considerations |
-| GPIO16–19 | Digital I/O, UART/SPI peripheral routing | Check actual board connections |
-| GPIO21–23 | Digital I/O, commonly used for I²C/SPI | Functions are configurable |
-| GPIO25–27 | Digital I/O, ADC2, PWM; DAC on GPIO25 and GPIO26 | Check peripheral and analog requirements |
-| GPIO32–33 | Digital I/O, ADC1, touch, PWM | Useful for sensor and control applications |
-| GPIO34–39 | Input-only GPIOs; ADC1 on supported pins | Cannot be used as digital outputs |
-
-GPIO availability depends on module connections, board routing, peripheral assignments, and boot requirements. GPIOs used by the module's internal flash interface should not be treated as general-purpose expansion pins.
-
-## Communication Protocols and Peripheral Capabilities
-
-The classic ESP32 supports several wired and wireless interfaces. Actual availability on the custom board depends on the schematic, connected hardware, and firmware configuration.
-
-| Interface | Purpose | Project relevance |
-|---|---|---|
-| UART | Serial communication and debugging | CP2102N programming and serial interface |
-| I²C | Communication with sensors and peripheral ICs | Potential external peripheral interface |
-| SPI | Communication with displays, sensors, and other peripherals | Potential external peripheral interface |
-| PWM | LED dimming, motor control, and signal generation | Available through suitable GPIO assignments |
-| ADC | Reading analog sensor signals | Supported analog-capable GPIOs |
-| DAC | Analog voltage output | GPIO25 and GPIO26 on the classic ESP32 |
-| Wi-Fi | Wireless networking | Integrated into the ESP32-WROOM-32E |
-| Bluetooth | Wireless communication | Bluetooth Classic and BLE capabilities |
-| CAN / TWAI | CAN-frame transmission and reception | Enhanced revision adds an SN65HVD230 CAN transceiver |
-
-**Interface distinction:** UART, I²C, SPI, PWM, ADC, DAC, Wi-Fi, and Bluetooth are ESP32 capabilities, not necessarily dedicated board connectors or hardware-validated functions. The CAN interface requires appropriate ESP32 TWAI connections, transceiver wiring, and firmware configuration.
-
-## Board-Specific Pin Mapping
-
-The table below identifies important connections that should be documented from the final schematic. Exact GPIO numbers should be confirmed before publishing the pinout as definitive.
-
-| Board signal | GPIO / pin | Connected component | Verification |
-|---|---|---|---|
-| USB-UART TX/RX | To be confirmed | CP2102N | Check schematic |
-| BOOT | To be confirmed | BOOT button | Check schematic |
-| RESET | EN pin / reset circuit | Reset button and circuitry | Check schematic |
-| CAN TX | To be confirmed | SN65HVD230 | Check schematic |
-| CAN RX | To be confirmed | SN65HVD230 | Check schematic |
-| User LED | To be confirmed | LED circuit | Check schematic |
-| GPIO expansion | To be confirmed per pin | GPIO header | Check schematic |
-
-The final pin map should record each header pin, its ESP32 GPIO number, any connected onboard component, and relevant restrictions. Only confirmed connections should be documented as board-specific assignments.
-
-## Tools & Technologies
-
-| Category | Technologies |
-|---|---|
-| PCB design | KiCad 9 |
-| Microcontroller | ESP32-WROOM-32E |
-| USB-to-UART | CP2102N |
-| Power regulation | AMS1117-3.3 V |
-| Communication | UART, I²C, SPI, CAN/TWAI |
-| Wireless | Wi-Fi, Bluetooth |
-| Analog and control | ADC, DAC, PWM |
-| Design verification | KiCad ERC and DRC |
-| Visualization | KiCad 3D Viewer |
-| Version control | Git and GitHub |
-
-## Engineering Approach
-
-The development process emphasizes incremental improvement and understanding the reasoning behind hardware design decisions.
-
-- **Iterative development:** Progressively refining the board across multiple design revisions.
-- **Design fundamentals:** Applying schematic design, component selection, footprint assignment, and PCB layout principles.
-- **Multilayer design:** Exploring stackup configuration, copper layers, routing, and copper zones.
-- **Peripheral integration:** Studying GPIO capabilities and communication interfaces.
-- **Design verification:** Using ERC and DRC to identify potential issues during development.
-- **Documentation and version control:** Maintaining design files and documenting progress through GitHub.
-- **Continuous learning:** Using each revision to explore additional concepts and improve the overall design.
-
-## Project Status
-
-The repository documents the schematic and PCB design stages, including layout refinement and design-rule review.
-
-**Physical fabrication, assembly, and hardware validation remain separate milestones** and will be documented when completed.
-
-## Planned Work
-
-- Finalize PCB layout and manufacturing checks.
-- Verify the complete GPIO-to-header pin mapping.
-- Fabricate and assemble the board.
-- Verify power regulation and USB programming.
-- Test GPIO functionality and peripheral interfaces.
-- Develop embedded C firmware for peripheral control and communication.
-- Validate CAN communication with compatible hardware.
-- Document hardware testing, debugging, and subsequent design improvements.
-
-## Project Objective
-
-This project is part of my ongoing development in electronics and embedded systems engineering. It reflects a structured approach to learning: establish a working design foundation, explore more advanced hardware concepts, evaluate the results, and improve the design through successive revisions.
-
-The goal is to develop practical engineering skills spanning **electronic circuit design, PCB development, GPIO and peripheral interfacing, hardware verification, and embedded systems integration**.
+</div>
 
 ---
 
-*KiCad 9 · ESP32 · PCB Design · Multilayer Hardware · GPIO · UART · I²C · SPI · CAN · Embedded Systems*
+## About Me
+
+I am an Electronics and Communication Engineering student passionate about embedded systems, firmware development, and hardware-software integration.
+
+I enjoy building practical projects, exploring microcontroller architectures, designing PCBs, and understanding how hardware and software interact. My current focus is on strengthening my skills in Embedded C, STM32 firmware development, ESP32 hardware design, and peripheral interfacing.
+
+- **Education:** B.E. in Electronics and Communication Engineering
+- **CGPA:** 8.62 / 10
+- **Interests:** Embedded Firmware, Embedded Systems, Hardware Design
+- **Current Focus:** ESP32 PCB development and STM32 firmware
+- **Career Goal:** Embedded systems and firmware internships
+
+---
+
+## 🧩 Custom ESP32 Development Board
+
+**KiCad 9 | ESP32-WROOM-32E | Four-Layer PCB | CAN Interface**
+
+Designing and progressively improving a custom ESP32 development board, documenting its evolution from an initial two-layer PCB to a four-layer design with an enhanced CAN interface.
+
+### 3D PCB Views
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <strong>Angled 3D View</strong><br>
+      <img src="images/esp32_pcb_angle.png" alt="Custom ESP32 board angled 3D view" width="100%">
+    </td>
+    <td align="center" width="50%">
+      <strong>Top 3D View</strong><br>
+      <img src="images/esp32_pcb_topview.png" alt="Custom ESP32 board top 3D view" width="100%">
+    </td>
+  </tr>
+</table>
+
+### Four-Layer PCB Layout
+
+The images below show the four copper layers in order from the top copper layer to the bottom copper layer.
+
+#### 1. Front Copper — F.Cu
+
+![Front copper layer (F.Cu)](images/esp32_F.cu.png)
+
+#### 2. Inner Copper 1 — In1.Cu
+
+![Inner copper layer 1 (In1.Cu)](images/esp32_In1.Cu.png)
+
+#### 3. Inner Copper 2 — In2.Cu
+
+![Inner copper layer 2 (In2.Cu)](images/esp32_In2.Cu.png)
+
+#### 4. Back Copper — B.Cu
+
+![Back copper layer (B.Cu)](images/esp32_B.cu.png)
+
+### Schematic
+
+![ESP32 development board schematic](images/esp32_schematic.png)
+
+The schematic is organized into the following functional sections:
+- USB connectivity and USB-to-UART programming interface
+- ESP32-WROOM-32E with BOOT and RESET controls
+- Power management
+- GPIO expansion
+- CAN bus interface
+
+### Key Features
+
+- ESP32-WROOM-32E microcontroller module
+- USB-C connectivity and CP2102N USB-to-UART interface
+- AMS1117-3.3 V voltage regulation
+- GPIO expansion header, BOOT and RESET buttons, and onboard LED
+- Four-layer PCB layout with two internal copper layers
+- SN65HVD230 CAN transceiver and NUP2105L CAN bus protection
+- Configurable 120 Ω CAN termination
+- Three-pin CAN screw terminal
+- Four corner mounting holes in the enhanced revision
+
+### Engineering Work
+
+- Schematic capture and component selection
+- Footprint assignment and component placement
+- Four-layer PCB stackup and copper-layer layout
+- Signal routing and copper-zone configuration
+- Electrical and design-rule verification
+- PCB visualization using KiCad 3D Viewer
+- Version control and documentation using Git and GitHub
+
+**Project Status:** PCB design and layout refinement are ongoing. Fabrication and physical hardware validation will be documented after completion.
+
+**Repository:** [ESP32 Development Board PCB](https://github.com/Manushree-J/ESP32-Development-Board-PCB)
+
+---
+
+## 🛠️ Technical Skills
+
+**Programming:** `C` `Embedded C` `Python (Basic)`
+
+**Embedded Platforms:** `ESP32` `STM32F103` `8051`
+
+**Microcontroller Concepts:** `GPIO` `Timers` `Interrupts` `Sensor Interfacing`
+
+**Communication Protocols:** `UART` `SPI` `I²C` `MQTT`
+
+**Hardware Design:** `KiCad 9` `Schematic Capture` `PCB Layout` `Routing` `ERC/DRC`
+
+**Development Tools:** `Keil µVision3` `Wokwi` `Xilinx ISE` `Cadence Virtuoso` `Git` `GitHub`
+
+**AI and IoT:** `OpenCV` `YOLO` `ThingSpeak` `Zapier` `Google Sheets`
+
+---
+
+## 🎓 Education
+
+**Bachelor of Engineering — Electronics and Communication Engineering**
+
+Akshaya Institute of Technology, Tumakuru, Karnataka  
+Visvesvaraya Technological University (VTU), Belagavi
+
+**2023–2027 (Expected Graduation)**  
+**CGPA:** 8.62 / 10
+
+---
+
+## Certification
+
+**NPTEL — Real Time Digital Signal Processing**
+
+Indian Institute of Science (IISc), Bangalore
+
+- **Duration:** 12 weeks
+- **Period:** July–October 2025
+- **Score:** 60%
+
+---
+
+## Currently Learning
+
+- Embedded C and firmware architecture
+- STM32 peripherals, timers, and interrupts
+- RTOS fundamentals and task scheduling
+- ESP32 hardware and PCB design
+- Communication protocols and peripheral drivers
+- Hardware debugging and verification
+
+---
+
+## Let's Connect
+
+I am interested in internship opportunities and collaborative projects involving embedded systems, firmware development, IoT, and electronic hardware design.
+
+- **GitHub:** [github.com/manushree-j](https://github.com/manushree-j)
+- **LinkedIn:** [linkedin.com/in/manushree-j-83086035a](https://www.linkedin.com/in/manushree-j-83086035a/)
