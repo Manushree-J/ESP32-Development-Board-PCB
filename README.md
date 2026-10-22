@@ -34,18 +34,8 @@ Designing and progressively improving a custom ESP32 development board, document
 
 ### 3D PCB Views
 
-<table>
-  <tr>
-    <td align="center" width="50%">
-      <strong>Angled 3D View</strong><br>
-      <img src="images/esp32_pcb_angle.png" alt="Custom ESP32 board angled 3D view" width="100%">
-    </td>
-    <td align="center" width="50%">
-      <strong>Top 3D View</strong><br>
-      <img src="images/esp32_pcb_topview.png" alt="Custom ESP32 board top 3D view" width="100%">
-    </td>
-  </tr>
-</table>
+<img width="854" height="905" alt="esp32_pcb_topview" src="https://github.com/user-attachments/assets/1ea027a1-a4b5-4c36-970e-0a1b825b39ae" />
+
 
 ### Four-Layer PCB Layout
 
