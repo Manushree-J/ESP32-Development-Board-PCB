@@ -35,6 +35,7 @@ Designing and progressively improving a custom ESP32 development board, document
 ### 3D PCB Views
 
 <img width="854" height="905" alt="esp32_pcb_topview" src="https://github.com/user-attachments/assets/1ea027a1-a4b5-4c36-970e-0a1b825b39ae" />
+<img width="933" height="843" alt="esp32_pcb_angle" src="https://github.com/user-attachments/assets/ac7908bb-e8b3-4e1a-aed7-ec21a9188926" />
 
 
 ### Four-Layer PCB Layout
@@ -43,23 +44,28 @@ The images below show the four copper layers in order from the top copper layer 
 
 #### 1. Front Copper — F.Cu
 
-![Front copper layer (F.Cu)](images/esp32_F.cu.png)
+<img width="764" height="849" alt="esp32_F cu" src="https://github.com/user-attachments/assets/6069f8a1-8967-45c4-a8fc-46ee2fe84387" />
+
 
 #### 2. Inner Copper 1 — In1.Cu
 
-![Inner copper layer 1 (In1.Cu)](images/esp32_In1.Cu.png)
+<img width="788" height="845" alt="esp32_In1 Cu" src="https://github.com/user-attachments/assets/623c4382-f1db-4f0b-82b3-2122bc9a988c" />
+
 
 #### 3. Inner Copper 2 — In2.Cu
 
-![Inner copper layer 2 (In2.Cu)](images/esp32_In2.Cu.png)
+<img width="764" height="845" alt="esp32_In2 Cu" src="https://github.com/user-attachments/assets/9f7e3e60-951d-4801-bfc9-7f1e7c6f5a1d" />
+
 
 #### 4. Back Copper — B.Cu
 
-![Back copper layer (B.Cu)](images/esp32_B.cu.png)
+<img width="750" height="835" alt="esp32_B cu" src="https://github.com/user-attachments/assets/c93595b7-51ae-457b-9f98-b56a4518c387" />
+
 
 ### Schematic
 
-![ESP32 development board schematic](images/esp32_schematic.png)
+<img width="1307" height="887" alt="esp32_schematic" src="https://github.com/user-attachments/assets/0fd5e32b-6e72-4e95-9914-a492d5d9d5b6" />
+
 
 The schematic is organized into the following functional sections:
 - USB connectivity and USB-to-UART programming interface
