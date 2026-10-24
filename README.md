@@ -1,12 +1,12 @@
-<div align="center">
+ <div align="center">
 
 # 👋 Hi, I'm Manushree J
 
-### Electronics & Communication Engineering Student
+**Electronics & Communication Engineering Student**
 
-**Embedded Systems | Firmware Development | IoT | PCB Design**
+Interested in Embedded Systems, Firmware Development, and PCB Design.
 
-[GitHub](https://github.com/manushree-j) · [LinkedIn](https://www.linkedin.com/in/manushree-j-83086035a/)
+[LinkedIn Profile](https://www.linkedin.com/in/manushree-j-83086035a/)
 
 </div>
 
@@ -14,150 +14,98 @@
 
 ## About Me
 
-I am an Electronics and Communication Engineering student passionate about embedded systems, firmware development, and hardware-software integration.
+I'm an Electronics and Communication Engineering student who enjoys learning through hands-on engineering projects. I'm particularly interested in embedded systems, microcontroller-based development, and hardware design.
 
-I enjoy building practical projects, exploring microcontroller architectures, designing PCBs, and understanding how hardware and software interact. My current focus is on strengthening my skills in Embedded C, STM32 firmware development, ESP32 hardware design, and peripheral interfacing.
-
-- **Education:** B.E. in Electronics and Communication Engineering
-- **CGPA:** 8.62 / 10
-- **Interests:** Embedded Firmware, Embedded Systems, Hardware Design
-- **Current Focus:** ESP32 PCB development and STM32 firmware
-- **Career Goal:** Embedded systems and firmware internships
+I believe in learning through experimentation, refining designs through multiple iterations, and understanding the engineering decisions behind each project.
 
 ---
 
-## 🧩 Custom ESP32 Development Board
+# Custom ESP32 Development Board
 
-**KiCad 9 | ESP32-WROOM-32E | Four-Layer PCB | CAN Interface**
+**ESP32-WROOM-32E | KiCad 9 | Four-Layer PCB | CAN Interface**
 
-Designing and progressively improving a custom ESP32 development board, documenting its evolution from an initial two-layer PCB to a four-layer design with an enhanced CAN interface.
+A custom ESP32 development board developed through multiple PCB design iterations, progressing from an initial two-layer layout to a four-layer design. The current revision focuses on component-placement changes and further PCB layout refinement.
 
-### 3D PCB Views
+## 3D PCB Views
 
-<img width="854" height="905" alt="esp32_pcb_topview" src="https://github.com/user-attachments/assets/1ea027a1-a4b5-4c36-970e-0a1b825b39ae" />
-<img width="933" height="843" alt="esp32_pcb_angle" src="https://github.com/user-attachments/assets/ac7908bb-e8b3-4e1a-aed7-ec21a9188926" />
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <strong>Angled 3D View</strong><br>
+      <img src="images/esp32_pcb_angle.png" alt="ESP32 PCB angled 3D view" width="100%">
+    </td>
+    <td align="center" width="50%">
+      <strong>Top View</strong><br>
+      <img src="images/esp32_pcb_topview.png" alt="ESP32 PCB top view" width="100%">
+    </td>
+  </tr>
+</table>
 
+## Four-Layer PCB Layout
 
-### Four-Layer PCB Layout
+### 1. Front Copper — F.Cu
 
-The images below show the four copper layers in order from the top copper layer to the bottom copper layer.
+![Front copper layer](images/esp32_F.cu.png)
 
-#### 1. Front Copper — F.Cu
+### 2. Inner Copper 1 — In1.Cu
 
-<img width="764" height="849" alt="esp32_F cu" src="https://github.com/user-attachments/assets/6069f8a1-8967-45c4-a8fc-46ee2fe84387" />
+![Inner copper layer 1](images/esp32_In1.Cu.png)
 
+### 3. Inner Copper 2 — In2.Cu
 
-#### 2. Inner Copper 1 — In1.Cu
+![Inner copper layer 2](images/esp32_In2.Cu.png)
 
-<img width="788" height="845" alt="esp32_In1 Cu" src="https://github.com/user-attachments/assets/623c4382-f1db-4f0b-82b3-2122bc9a988c" />
+### 4. Back Copper — B.Cu
 
+![Back copper layer](images/esp32_B.cu.png)
 
-#### 3. Inner Copper 2 — In2.Cu
+## Schematic
 
-<img width="764" height="845" alt="esp32_In2 Cu" src="https://github.com/user-attachments/assets/9f7e3e60-951d-4801-bfc9-7f1e7c6f5a1d" />
+![ESP32 development board schematic](images/esp32_schematic.png)
 
-
-#### 4. Back Copper — B.Cu
-
-<img width="750" height="835" alt="esp32_B cu" src="https://github.com/user-attachments/assets/c93595b7-51ae-457b-9f98-b56a4518c387" />
-
-
-### Schematic
-
-<img width="1307" height="887" alt="esp32_schematic" src="https://github.com/user-attachments/assets/0fd5e32b-6e72-4e95-9914-a492d5d9d5b6" />
-
-
-The schematic is organized into the following functional sections:
-- USB connectivity and USB-to-UART programming interface
-- ESP32-WROOM-32E with BOOT and RESET controls
-- Power management
-- GPIO expansion
-- CAN bus interface
-
-### Key Features
+## Key Features
 
 - ESP32-WROOM-32E microcontroller module
-- USB-C connectivity and CP2102N USB-to-UART interface
+- USB-C connectivity with CP2102N USB-to-UART interface
 - AMS1117-3.3 V voltage regulation
-- GPIO expansion header, BOOT and RESET buttons, and onboard LED
-- Four-layer PCB layout with two internal copper layers
-- SN65HVD230 CAN transceiver and NUP2105L CAN bus protection
+- GPIO expansion header
+- BOOT and RESET buttons
+- Onboard user LED
+- SN65HVD230 CAN transceiver
+- NUP2105L CAN bus protection
 - Configurable 120 Ω CAN termination
 - Three-pin CAN screw terminal
-- Four corner mounting holes in the enhanced revision
+- Four corner mounting holes
 
-### Engineering Work
+## Design Evolution
+
+This project documents three stages of development:
+
+1. **Initial two-layer PCB:** Establishing the core ESP32 board architecture, USB connectivity, power supply, and GPIO access.
+2. **Four-layer PCB:** Moving to a four-copper-layer stack-up.
+3. **Current redesign:** Revisiting component placement and refining the overall layout, including the CAN interface.
+
+The goal is to improve the design through iterative refinement and careful review of layout decisions.
+
+## Engineering Work
 
 - Schematic capture and component selection
 - Footprint assignment and component placement
-- Four-layer PCB stackup and copper-layer layout
+- Four-layer PCB stack-up and copper-layer layout
 - Signal routing and copper-zone configuration
-- Electrical and design-rule verification
-- PCB visualization using KiCad 3D Viewer
-- Version control and documentation using Git and GitHub
+- Electrical Rule Check (ERC) and Design Rule Check (DRC)
+- 3D visualization using KiCad
+- Project documentation and version control using Git
 
-**Project Status:** PCB design and layout refinement are ongoing. Fabrication and physical hardware validation will be documented after completion.
+## Project Status
 
-**Repository:** [ESP32 Development Board PCB](https://github.com/Manushree-J/ESP32-Development-Board-PCB)
+**Ongoing — PCB design and layout refinement.**
 
----
+The next steps include reviewing component placement and routing, checking design constraints, preparing the board for fabrication, and validating the assembled hardware.
 
-## 🛠️ Technical Skills
+Fabrication and physical hardware validation have not yet been completed.
 
-**Programming:** `C` `Embedded C` `Python (Basic)`
+## Tools Used
 
-**Embedded Platforms:** `ESP32` `STM32F103` `8051`
+`KiCad 9` · `ESP32-WROOM-32E` · `CP2102N` · `SN65HVD230` · `NUP2105L` · `Git`
 
-**Microcontroller Concepts:** `GPIO` `Timers` `Interrupts` `Sensor Interfacing`
-
-**Communication Protocols:** `UART` `SPI` `I²C` `MQTT`
-
-**Hardware Design:** `KiCad 9` `Schematic Capture` `PCB Layout` `Routing` `ERC/DRC`
-
-**Development Tools:** `Keil µVision3` `Wokwi` `Xilinx ISE` `Cadence Virtuoso` `Git` `GitHub`
-
-**AI and IoT:** `OpenCV` `YOLO` `ThingSpeak` `Zapier` `Google Sheets`
-
----
-
-## 🎓 Education
-
-**Bachelor of Engineering — Electronics and Communication Engineering**
-
-Akshaya Institute of Technology, Tumakuru, Karnataka  
-Visvesvaraya Technological University (VTU), Belagavi
-
-**2023–2027 (Expected Graduation)**  
-**CGPA:** 8.62 / 10
-
----
-
-## Certification
-
-**NPTEL — Real Time Digital Signal Processing**
-
-Indian Institute of Science (IISc), Bangalore
-
-- **Duration:** 12 weeks
-- **Period:** July–October 2025
-- **Score:** 60%
-
----
-
-## Currently Learning
-
-- Embedded C and firmware architecture
-- STM32 peripherals, timers, and interrupts
-- RTOS fundamentals and task scheduling
-- ESP32 hardware and PCB design
-- Communication protocols and peripheral drivers
-- Hardware debugging and verification
-
----
-
-## Let's Connect
-
-I am interested in internship opportunities and collaborative projects involving embedded systems, firmware development, IoT, and electronic hardware design.
-
-- **GitHub:** [github.com/manushree-j](https://github.com/manushree-j)
-- **LinkedIn:** [linkedin.com/in/manushree-j-83086035a](https://www.linkedin.com/in/manushree-j-83086035a/)
